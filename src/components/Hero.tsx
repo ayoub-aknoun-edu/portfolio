@@ -1,6 +1,39 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import javaLogo from "@/assets/logos/java.svg";
+import dotnetLogo from "@/assets/logos/dotnet.svg";
+import angularLogo from "@/assets/logos/angular.svg";
+import springLogo from "@/assets/logos/spring.svg";
+import figmaLogo from "@/assets/logos/figma.svg";
+import postgresLogo from "@/assets/logos/postgresql.svg";
+import gitLogo from "@/assets/logos/git.svg";
+import dockerLogo from "@/assets/logos/docker.svg";
+import typescriptLogo from "@/assets/logos/typescript.svg";
+import sqlserverLogo from "@/assets/logos/sqlserver.svg";
+import nginxLogo from "@/assets/logos/nginx.svg";
+import linuxLogo from "@/assets/logos/linux.svg";
+
+const technologies = [
+  { name: "Java", logo: javaLogo },
+  { name: ".NET Core", logo: dotnetLogo },
+  { name: "Angular", logo: angularLogo },
+  { name: "Spring Boot", logo: springLogo },
+  { name: "TypeScript", logo: typescriptLogo },
+  { name: "SQL Server", logo: sqlserverLogo },
+  { name: "PostgreSQL", logo: postgresLogo },
+  { name: "Docker", logo: dockerLogo },
+  { name: "Git", logo: gitLogo },
+  { name: "Nginx", logo: nginxLogo },
+  { name: "Linux", logo: linuxLogo },
+  { name: "Figma", logo: figmaLogo },
+];
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -25,24 +58,47 @@ const Hero = () => {
             <span className="text-gradient">Your Name</span>
           </h1>
           
-          <p className="text-2xl md:text-3xl font-semibold text-foreground/90">
+          <p className="text-2xl md:text-3xl font-semibold text-foreground/90 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Full-Stack Developer
           </p>
           
-          <div className="flex flex-wrap justify-center gap-3 text-sm md:text-base text-muted-foreground">
-            <span className="px-4 py-2 rounded-full bg-secondary border border-border">Java</span>
-            <span className="px-4 py-2 rounded-full bg-secondary border border-border">.NET Core</span>
-            <span className="px-4 py-2 rounded-full bg-secondary border border-border">Angular</span>
-            <span className="px-4 py-2 rounded-full bg-secondary border border-border">Spring Boot</span>
+          <div className="w-full max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              plugins={[
+                Autoplay({
+                  delay: 2000,
+                }),
+              ]}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {technologies.map((tech, index) => (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/3 sm:basis-1/4 md:basis-1/5 lg:basis-1/6">
+                    <div className="p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-glow flex flex-col items-center justify-center gap-2 h-24">
+                      <img 
+                        src={tech.logo} 
+                        alt={tech.name}
+                        className="w-8 h-8 object-contain"
+                      />
+                      <span className="text-xs text-muted-foreground text-center">{tech.name}</span>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
           </div>
           
-          <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.6s' }}>
             I design, build, and deploy secure, scalable web applications end-to-end: from REST APIs 
             and microservices with Spring Boot and ASP.NET Core to modern Angular frontends, CI/CD pipelines, 
             and production deployments on IIS and Linux-based environments.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 animate-fade-in" style={{ animationDelay: '0.8s' }}>
             <Button 
               size="lg" 
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"

@@ -1,6 +1,8 @@
 import { Card } from "@/components/ui/card";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const TechnicalFocus = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const focuses = [
     {
       title: "Backend Engineering",
@@ -61,10 +63,12 @@ const TechnicalFocus = () => {
 
   return (
     <section className="section-padding">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">Technical Focus & Techniques</h2>
+      <div className="container mx-auto max-w-6xl" ref={ref}>
+        <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-gradient transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          Technical Focus & Techniques
+        </h2>
         
-        <Card className="p-8 mb-12 bg-card border-border">
+        <Card className={`p-8 mb-12 bg-card border-border transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <p className="text-lg text-foreground/90 leading-relaxed">
             Technically, I focus on robust backend architecture, strong security, and clean Angular frontends. 
             I use patterns like layered architecture and dependency injection, rely on ORMs with optimized queries, 
@@ -77,7 +81,8 @@ const TechnicalFocus = () => {
           {focuses.map((focus, idx) => (
             <Card 
               key={idx}
-              className="p-6 bg-card border-border hover:border-primary/50 transition-all card-hover"
+              className={`p-6 bg-card border-border hover:border-primary/50 transition-all duration-700 card-hover ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${(idx + 2) * 100}ms` }}
             >
               <h3 className="text-xl font-bold text-primary mb-4">{focus.title}</h3>
               <ul className="space-y-2">

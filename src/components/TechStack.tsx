@@ -1,6 +1,8 @@
 import { Card } from "@/components/ui/card";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const TechStack = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const categories = [
     {
       title: "Backend",
@@ -52,9 +54,11 @@ const TechStack = () => {
 
   return (
     <section className="section-padding">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Tech Stack</h2>
-        <p className="text-lg text-muted-foreground mb-12">
+      <div className="container mx-auto max-w-6xl" ref={ref}>
+        <h2 className={`text-4xl md:text-5xl font-bold mb-4 text-gradient transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          Tech Stack
+        </h2>
+        <p className={`text-lg text-muted-foreground mb-12 transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <strong className="text-primary">Comfort zone:</strong> secure APIs, complex business rules, 
           multi-layer architectures, integrations with third-party services.
         </p>
@@ -63,7 +67,8 @@ const TechStack = () => {
           {categories.map((category, idx) => (
             <Card 
               key={idx}
-              className="p-6 bg-card border-border hover:border-primary/50 transition-colors card-hover"
+              className={`p-6 bg-card border-border hover:border-primary/50 transition-all duration-700 card-hover ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${(idx + 2) * 100}ms` }}
             >
               <h3 className="text-2xl font-bold text-primary mb-4">{category.title}</h3>
               <ul className="space-y-2">

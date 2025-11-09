@@ -1,7 +1,9 @@
 import { Card } from "@/components/ui/card";
 import { Server, Lock, Code, Layers, Rocket, FileCode } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Services = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const services = [
     {
       icon: Server,
@@ -37,14 +39,17 @@ const Services = () => {
 
   return (
     <section className="section-padding bg-card">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gradient">What I Do</h2>
+      <div className="container mx-auto max-w-6xl" ref={ref}>
+        <h2 className={`text-4xl md:text-5xl font-bold mb-12 text-gradient transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          What I Do
+        </h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, idx) => (
             <Card 
               key={idx}
-              className="p-6 bg-background border-border hover:border-primary/50 transition-all card-hover"
+              className={`p-6 bg-background border-border hover:border-primary/50 transition-all duration-700 card-hover ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'}`}
+              style={{ transitionDelay: `${(idx + 1) * 100}ms` }}
             >
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                 <service.icon className="w-6 h-6 text-primary" />

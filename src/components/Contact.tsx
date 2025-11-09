@@ -1,14 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Mail, Linkedin, Github, FileDown } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Contact = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   return (
     <section id="contact" className="section-padding bg-card">
-      <div className="container mx-auto max-w-4xl">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gradient text-center">Get In Touch</h2>
+      <div className="container mx-auto max-w-4xl" ref={ref}>
+        <h2 className={`text-4xl md:text-5xl font-bold mb-12 text-gradient text-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          Get In Touch
+        </h2>
         
-        <Card className="p-8 bg-background border-border text-center">
+        <Card className={`p-8 bg-background border-border text-center transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <p className="text-lg text-foreground/80 mb-8 leading-relaxed">
             I'm always interested in hearing about new opportunities, projects, or just having a 
             technical discussion. Feel free to reach out through any of the channels below.
@@ -17,7 +22,7 @@ const Contact = () => {
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <Button 
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition-transform"
               asChild
             >
               <a href="mailto:your.email@example.com" className="flex items-center gap-2">
@@ -29,7 +34,7 @@ const Contact = () => {
             <Button 
               size="lg"
               variant="outline"
-              className="border-primary text-primary hover:bg-primary/10"
+              className="border-primary text-primary hover:bg-primary/10 hover:scale-105 transition-transform"
               asChild
             >
               <a 
@@ -46,7 +51,7 @@ const Contact = () => {
             <Button 
               size="lg"
               variant="outline"
-              className="border-primary text-primary hover:bg-primary/10"
+              className="border-primary text-primary hover:bg-primary/10 hover:scale-105 transition-transform"
               asChild
             >
               <a 
@@ -63,7 +68,7 @@ const Contact = () => {
             <Button 
               size="lg"
               variant="outline"
-              className="border-primary text-primary hover:bg-primary/10"
+              className="border-primary text-primary hover:bg-primary/10 hover:scale-105 transition-transform"
               asChild
             >
               <a href="/cv.pdf" download className="flex items-center gap-2">

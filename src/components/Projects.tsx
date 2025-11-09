@@ -1,7 +1,9 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Projects = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const projects = [
     {
       title: "Secure Operations Dashboard",
@@ -79,14 +81,17 @@ const Projects = () => {
 
   return (
     <section className="section-padding bg-card">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gradient">Projects</h2>
+      <div className="container mx-auto max-w-6xl" ref={ref}>
+        <h2 className={`text-4xl md:text-5xl font-bold mb-12 text-gradient transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          Projects
+        </h2>
         
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, idx) => (
             <Card 
               key={idx}
-              className="p-6 bg-background border-border hover:border-primary/50 transition-all card-hover"
+              className={`p-6 bg-background border-border hover:border-primary/50 transition-all duration-700 card-hover ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${(idx + 1) * 100}ms` }}
             >
               <div className="mb-4">
                 <h3 className="text-2xl font-bold text-foreground mb-2">{project.title}</h3>
