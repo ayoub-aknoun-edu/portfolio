@@ -1,73 +1,58 @@
-# Welcome to your Lovable project
+# Yassine — Full Stack Developer Portfolio
 
-## Project info
+This repository contains my personal developer portfolio: a modern, fast, and minimal website to present my skills, projects, and experience as a full stack engineer.
 
-**URL**: https://lovable.dev/projects/6ecb2d38-7e93-4026-9b27-2fa564dddfb5
+It is designed to highlight strong backend foundations (Java/Spring, .NET Core), solid frontend work (Angular, React), and real-world experience with deployment, DevOps, and production-ready architectures.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## About
 
-**Use Lovable**
+I build complete solutions from idea to deployment:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6ecb2d38-7e93-4026-9b27-2fa564dddfb5) and start prompting.
+- **Backend:** Java (Spring Boot, Spring Security, Spring Data, Spring Cloud), .NET Core / ASP.NET, REST APIs, authentication & authorization, clean architecture.
+- **Frontend:** Angular, React, TypeScript, responsive UI, reusable components, dashboard-style interfaces.
+- **DevOps & Deployment:** IIS, Nginx/Apache, Docker, CI/CD, reverse proxies, SSL, production monitoring.
+- **Databases:** SQL Server, PostgreSQL, MySQL, SQLite, query optimization, migrations.
+- **Collaboration:** Git/GitHub workflows, code reviews, branching strategies, documentation.
 
-Changes made via Lovable will be committed automatically to this repo.
+This portfolio is both a showcase and a playground for the technologies I use in real projects.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Features
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Hero section with quick overview & call-to-action.
+- **Skills section** grouped by Backend, Frontend, DevOps, Tools.
+- **Projects section** featuring selected real-world work (APIs, dashboards, automation tools, security & monitoring, etc.).
+- **Experience / Services**: what I can deliver for companies & teams.
+- **Contact section** with links to email, GitHub, LinkedIn (and any other channels I choose to expose).
+- Fully responsive UI with a clean, professional look.
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Tech Stack
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+This portfolio is built with:
 
-# Step 3: Install the necessary dependencies.
-npm i
+- **React** + **TypeScript**
+- **Vite**
+- **Tailwind CSS**
+- **shadcn-ui**
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+These tools provide a fast developer experience, strong typing, and a consistent component system.
+
+---
+
+## Getting Started
+
+```bash
+# Clone your fork
+git clone https://github.com/yassine-san/portfolio.git
+cd portfolio
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/6ecb2d38-7e93-4026-9b27-2fa564dddfb5) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
