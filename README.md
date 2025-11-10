@@ -1,4 +1,4 @@
-# Yassine Ballouti — Full-Stack Engineer Portfolio
+# Portfolio — Full-Stack Engineer Portfolio
 
 This repository hosts my personal portfolio: an interactive, story-driven experience that showcases how I build **reliable, production-grade systems** that connect code, infrastructure, and real-world operations.
 
