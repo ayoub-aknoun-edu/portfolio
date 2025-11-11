@@ -64,7 +64,7 @@ export const ContactStory: React.FC = () => (
           className="flex items-center gap-2 hover:text-orange-500"
         >
           <Linkedin className="h-3 w-3" />
-          LinkedIn — add URL
+          https://www.linkedin.com/in/yassine-ballouti/
         </a>
         <p className="mt-2 text-[9px] text-slate-500 dark:text-slate-500">
           I’m used to working with product owners, QA, infra and business teams.
