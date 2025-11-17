@@ -4,21 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Full-Stack Developer Portfolio | Java · .NET · Angular</title>
-    <meta name="description" content="Full-stack developer specializing in Java Spring Boot, .NET Core, and Angular. Building secure, scalable web applications with clean architecture and production-ready deployments." />
-    <meta name="author" content="Your Name" />
-
-    <meta property="og:title" content="Full-Stack Developer Portfolio | Java · .NET · Angular" />
-    <meta property="og:description" content="Full-stack developer specializing in secure REST APIs, microservices, and modern web applications." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <link rel="icon" href="public/favicon.ico" />
   </head>
 
   <body>
     <div id="root"></div>
+    <script>
+      // Prefer user's saved theme, otherwise default to dark
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark' || (!theme && !window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark'); // set default on first visit
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -226,7 +226,7 @@ export const portfolioConfig = {
     },
 
     footer: {
-        editionLabel: "Portfolio Edition.",
+        editionLabel: "Portfolio Edition",
         techStackLine:
             "",
     },
