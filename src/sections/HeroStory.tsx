@@ -5,8 +5,11 @@ import Typewriter from "typewriter-effect";
 import { ArrowRight, Code2, LayoutTemplate, ServerCog } from "lucide-react";
 import { Link as ScrollLink } from "react-scroll";
 import { Button } from "@/components/ui/button";
+import { portfolioConfig } from "@/config/portfolioConfig";
 
 export const HeroStory: React.FC = () => {
+  const { hero } = portfolioConfig;
+
   return (
     <div className="relative overflow-hidden">
       {/* editorial highlight */}
@@ -15,12 +18,12 @@ export const HeroStory: React.FC = () => {
 
       <div className="relative mx-auto flex max-w-5xl flex-col gap-5 pt-4">
         <motion.p
-          className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[9px] uppercase tracking-wide text-slate-500 shadow-sm dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-300"
+          className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-slate-700 shadow-sm dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-300"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          Feature • Full-Stack Engineer crafting web platforms, APIs & apps
+          {hero.badge}
         </motion.p>
 
         <motion.h1
@@ -29,8 +32,7 @@ export const HeroStory: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.5 }}
         >
-          I build & ship web platforms, APIs and apps that behave like
-          production systems from day one.
+          {hero.title}
         </motion.h1>
 
         <motion.div
@@ -43,11 +45,7 @@ export const HeroStory: React.FC = () => {
             options={{
               delay: 24,
               cursor: "|",
-              strings: [
-                "Clean UIs in React/Angular.",
-                "Robust backends in Java/Spring, .NET, FastAPI.",
-                "CI/CD pipelines, monitoring, and real deployments.",
-              ],
+              strings: [...hero.typewriterStrings],
               autoStart: true,
               loop: true,
             }}
@@ -62,15 +60,15 @@ export const HeroStory: React.FC = () => {
         >
           <span className="inline-flex items-center gap-1 rounded-md bg-slate-100 px-2 py-1 dark:bg-slate-900">
             <LayoutTemplate className="h-3 w-3 text-orange-500" />
-            Pixel-perfect, responsive interfaces (HTML, CSS, Tailwind)
+            {hero.chips[0]}
           </span>
           <span className="inline-flex items-center gap-1 rounded-md bg-slate-100 px-2 py-1 dark:bg-slate-900">
             <ServerCog className="h-3 w-3 text-sky-500" />
-            Java/Spring · .NET · FastAPI · REST APIs
+            {hero.chips[1]}
           </span>
           <span className="inline-flex items-center gap-1 rounded-md bg-slate-100 px-2 py-1 dark:bg-slate-900">
             <Code2 className="h-3 w-3 text-emerald-500" />
-            GitLab/GitHub workflows · Docker · IIS/NGINX deploys
+            {hero.chips[2]}
           </span>
         </motion.div>
 
@@ -80,21 +78,26 @@ export const HeroStory: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.42, duration: 0.4 }}
         >
-          <ScrollLink to="projects" smooth offset={-80} duration={500}>
-            <Button className="group flex items-center gap-2 bg-orange-500 text-slate-950 hover:bg-orange-400">
-              Browse featured case studies
+          <ScrollLink
+            to={hero.primaryCta.targetId}
+            smooth
+            offset={-80}
+            duration={500}
+          >
+            <Button className="group flex items-center gap-2 bg-orange-500 text-white hover:bg-orange-400">
+              {hero.primaryCta.label}
               <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
             </Button>
           </ScrollLink>
 
           <ScrollLink
-            to="about"
+            to={hero.secondaryCta.targetId}
             smooth
             offset={-80}
             duration={500}
             className="cursor-pointer text-xs text-slate-600 hover:text-orange-500 dark:text-slate-300"
           >
-            Read the story behind the work →
+            {hero.secondaryCta.label}
           </ScrollLink>
         </motion.div>
       </div>
